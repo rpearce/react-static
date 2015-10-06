@@ -1,0 +1,29 @@
+{
+  "name": "statik-js",
+  "version": "0.1.0",
+  "description": "Static site generator for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "clean": "rm -rf _site",
+    "build": "npm run clean && babel-node src/index.js"
+  },
+  "keywords": [
+    "static",
+    "generator",
+    "static",
+    "site",
+    "node",
+    "nodejs"
+  ],
+  "author": "Robert Pearce",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "eslint": "^1.6.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.3",
+    "marked": "^0.3.5"
+  }
+}
