@@ -7,25 +7,25 @@ const buildPath = '_site';
 const postsPath = path.join(__dirname, 'posts');
 const layoutPath = path.join(__dirname, 'layout.html');
 
-function filterMdFiles(files) {
+async function getMdFilenames() {
+  const files = await fsp.readdir(postsPath);
   return files.filter(file => { return file.match(/.md|.markdown/); });
 }
 
 async function outputMdFileAsHTML(mdFilename) {
-  var mdFilePath = path.join(postsPath, mdFilename);
-  var mdData = await fsp.readFile(mdFilePath, 'utf8');
-  var mdHTML = marked(mdData);
-  var layout = await fsp.readFile(layoutPath, 'utf8');
-  var template = handlebars.compile(layout);
-  var html = template({ markup: mdHTML });
+  const mdFilePath = path.join(postsPath, mdFilename);
+  const mdData = await fsp.readFile(mdFilePath, 'utf8');
+  const mdHTML = marked(mdData);
+  const layout = await fsp.readFile(layoutPath, 'utf8');
+  const template = handlebars.compile(layout);
+  const html = template({ markup: mdHTML });
   await fsp.writeFile(`${buildPath}/${mdFilename.split('.')[0]}.html`, html, 'utf8');
 }
 
 async () => {
   try {
     await fsp.mkdir(buildPath);
-    const files = await fsp.readdir(postsPath);
-    const mdFilenames = filterMdFiles(files);
+    const mdFilenames = await getMdFilenames();
     for (let mdFilename of mdFilenames) {
       await outputMdFileAsHTML(mdFilename);
     }
