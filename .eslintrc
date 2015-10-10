@@ -19,7 +19,7 @@
     "dot-notation": 2,
     "eqeqeq": [2, "smart"],
     "yoda": 2,
-    "no-use-before-define": 2,
+    "no-use-before-define": 0,
     "no-redeclare": 2,
     "no-inner-declarations": [2, "both"],
     "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
