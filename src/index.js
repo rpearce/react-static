@@ -1,8 +1,8 @@
-import mdHelper from './mdHelper';
+import { convert as convertPosts } from './postsHelper';
 
 async () => {
   try {
-    mdHelper.convertMds();
+    convertPosts();
   } catch (err) {
     console.error(err);
   }
