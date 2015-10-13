@@ -47,15 +47,14 @@ async function writeHTML(filenamePrefix, html) {
   return fsp.writeFile(`${constants.buildPath}/${filenamePrefix}.html`, html, 'utf8');
 }
 
-
 // separate metadata from content
 function splitMetadataFromContent(contents) {
   var fileAttrs = {};
   var lines = contents.split('\n').map(line => { return line.trim(); });
-  var metadataBoundaryIndices = getMetadataBoundaryIndices(lines);
+  var yamlIndices = getMetadataBoundaryIndices(lines);
 
-  if (metadataBoundaryIndices.length > 0) {
-    let tempMetadata = lines.splice(metadataBoundaryIndices[0], metadataBoundaryIndices[1] + 1);
+  if (yamlIndices.length > 0) {
+    let tempMetadata = lines.splice(yamlIndices[0], yamlIndices[1] + 1);
     tempMetadata.shift();
     tempMetadata.pop();
 
@@ -68,14 +67,19 @@ function splitMetadataFromContent(contents) {
 }
 
 function getMetadataBoundaryIndices(lines) {
-  var arr = [];
-  lines.forEach((line, i) => {
-    if (/^---/.test(line)) {
-      arr.push(i);
-    }
-  });
-  return arr;
+  return lines.map(testForBoundary).clean(undefined);
 }
+
+function testForBoundary(item, i) {
+  if (/^---/.test(item)) {
+    return i;
+  }
+}
+
+Array.prototype.clean = function() {
+  var args = [].slice.call(arguments);
+  return this.filter(item => args.indexOf(item) === -1);
+};
 
 async function getPostFilenames() {
   const files = await fsp.readdir(path.join(__dirname, 'posts'));
