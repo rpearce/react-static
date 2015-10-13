@@ -83,7 +83,7 @@ Array.prototype.clean = function() {
 
 async function getPostFilenames() {
   const files = await fsp.readdir(path.join(__dirname, 'posts'));
-  return files.filter(file => { return file.match(/.md|.markdown/); });
+  return files.filter(file => { return /.md|.markdown/.test(file); });
 }
 
 export default { convert };
