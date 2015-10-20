@@ -1,4 +1,5 @@
-import { convert as convertPosts } from './postsHelper';
+import './helpers/array';
+import convertPosts from './helpers/posts';
 
 async () => {
   try {
