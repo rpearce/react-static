@@ -1,9 +1,8 @@
-import './helpers/array';
-import convertPosts from './helpers/posts';
+import build from './components';
 
 async () => {
   try {
-    convertPosts();
+    build();
   } catch (err) {
     console.error(err);
   }

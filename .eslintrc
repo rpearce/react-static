@@ -22,7 +22,7 @@
     "no-use-before-define": 0,
     "no-redeclare": 2,
     "no-inner-declarations": [2, "both"],
-    "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
+    "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],
     "no-floating-decimal": 2,
     "no-spaced-func": 2,
     "no-extra-parens": 1,

@@ -1,7 +1,8 @@
 import marked from 'marked';
 import yaml from 'js-yaml';
+import './array';
 
-function splitMetadataFromContent(contents) {
+function parse(contents) {
   const lines = contents.split('\n').map(line => { return line.trim(); });
   const metadataIndices = getMetadataBoundaryIndices(lines);
   const metadata = getMetadata({ lines, metadataIndices });
@@ -34,4 +35,4 @@ function getContent({ lines, metadataIndices }) {
   return marked(lines.join('\n'));
 }
 
-export default { splitMetadataFromContent };
+export default { parse };

@@ -1,16 +1,7 @@
 import path from 'path';
 import handlebars from 'handlebars';
 import fsp from 'fs-promise';
-import config from '../config';
 import markdownHelper from './markdown';
-
-async function convert() {
-  await fsp.mkdir(config.buildPath);
-  const filenames = await getPostFilenames();
-  for (let filename of filenames) {
-    exportHTML(filename);
-  }
-}
 
 async function exportHTML(filename) {
   const filenamePrefix = filename.split('.')[0];
@@ -18,7 +9,7 @@ async function exportHTML(filename) {
   // get file data
   const filePath = path.join(path.join(__dirname, '..', 'posts'), filename);
   const fileContents = await fsp.readFile(filePath, 'utf8');
-  const fileAttrs = markdownHelper.splitMetadataFromContent(fileContents);
+  const fileAttrs = markdownHelper.parse(fileContents);
 
   // build up html
   const html = await buildHTML(fileAttrs);
@@ -43,7 +34,7 @@ async function buildHTML(fileAttrs) {
 
 // write file to build path
 async function writeHTML(filenamePrefix, html) {
-  return fsp.writeFile(`${config.buildPath}/${filenamePrefix}.html`, html, 'utf8');
+  return fsp.writeFile(`_site/${filenamePrefix}.html`, html, 'utf8');
 }
 
 async function getPostFilenames() {
@@ -51,4 +42,13 @@ async function getPostFilenames() {
   return files.filter(file => { return /.md|.markdown/.test(file); });
 }
 
-export default convert;
+export default async function() {
+  try {
+    const filenames = await getPostFilenames();
+    for (let filename of filenames) {
+      exportHTML(filename);
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
