@@ -13,7 +13,7 @@
     "curly": 0,
     "brace-style": [0, "1tbs"],
     "quotes": [2, "single"],
-    "semi": [2, "always"],
+    "semi": [1, "always"],
     "space-infix-ops": 2,
     "space-after-keywords": [2, "always"],
     "dot-notation": 2,
