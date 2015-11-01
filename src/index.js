@@ -11,7 +11,8 @@ function buildPages() {
      * Given IndexRoute has no path,
      * we supply a fallback of `/`
      */
-    const location = child.props.path || '/';
+    const { path, name } = child.props,
+          location = '/'.concat(path || '');
 
     /*
      * Trigger react-router's route matching
@@ -26,8 +27,7 @@ function buildPages() {
        * in src/components/routes.js
        */
       const componentHTML = renderToString(<RoutingContext { ...renderProps } />);
-      const fileName = child.props.name;
-      fsp.writeFile(`_site/${fileName}.html`, `<!DOCTYPE html>${componentHTML}`, 'utf8');
+      fsp.writeFile(`_site/${name}.html`, `<!DOCTYPE html>${componentHTML}`, 'utf8');
     });
   });
 }

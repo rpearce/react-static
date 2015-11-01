@@ -11,6 +11,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <main role="main">
+        <Link to="/blog">Blog</Link>
         <section aria-labelledby="about__intro">
           <h2 id="about__intro">Hello, I'm Robert.</h2>
           <p>I am a leader, problem-solver and software developer - in that order.</p>

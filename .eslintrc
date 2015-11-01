@@ -25,7 +25,7 @@
     "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],
     "no-floating-decimal": 2,
     "no-spaced-func": 2,
-    "no-extra-parens": 1,
+    "no-extra-parens": 0,
     "no-warning-comments": [1, {"terms": ["todo"], "location": "anywhere"}],
     "no-underscore-dangle": 0
   },

@@ -7,6 +7,6 @@ import Blog from './Blog.react';
 export default (
   <Route path="/" component={ Root }>
     <IndexRoute component={ Index } name="index" />
-    <Route path="/blog" component={ Blog } name="blog" />
+    <Route path="blog" component={ Blog } name="blog" />
   </Route>
 );
