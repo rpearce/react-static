@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import WorkItems from './work/Items.react';
 
-export default class Index extends React.Component {
+export default class Index extends Component {
   static meta = {
     title: 'Homepage',
     description: 'This is the homepage'

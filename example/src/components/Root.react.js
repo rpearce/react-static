@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class Root extends React.Component {
+export default class Root extends Component {
   render() {
     const { title, description } = this.props.children.type.meta;
     return (

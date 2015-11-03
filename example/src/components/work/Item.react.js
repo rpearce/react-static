@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-export default class extends React.Component {
+export default class Item extends Component {
   render() {
     const { name, path, image, description } = this.props.item;
 

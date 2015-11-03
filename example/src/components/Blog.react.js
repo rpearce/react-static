@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-export default class Blog extends React.Component {
+export default class Blog extends Component {
   static meta = {
     title: 'Blog',
     description: 'This is the blog'
@@ -10,7 +10,8 @@ export default class Blog extends React.Component {
   render() {
     return (
       <main role="main">
-        BLOOOOOOOGGGGGGG
+        <Link to="/">Home</Link>
+        This is the blog page
       </main>
     );
   }
