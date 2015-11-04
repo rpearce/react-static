@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav.react';
 
-export default class Blog extends Component {
+export default class About extends Component {
   static meta = {
-    title: 'Blog',
-    description: 'This is the blog'
+    title: 'About',
+    description: 'This is about me'
   }
 
   render() {
@@ -16,7 +16,7 @@ export default class Blog extends Component {
         </header>
         <main role="main">
           <header>
-            <h1>Blog</h1>
+            <h1>About</h1>
           </header>
         </main>
       </div>

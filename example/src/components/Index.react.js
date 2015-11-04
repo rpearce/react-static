@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import WorkItems from './work/Items.react';
+import Nav from './Nav.react';
 
 export default class Index extends Component {
   static meta = {
@@ -10,26 +10,16 @@ export default class Index extends Component {
 
   render() {
     return (
-      <main role="main">
-        <Link to="/blog">Blog</Link>
-        <section aria-labelledby="about__intro">
-          <h2 id="about__intro">Hello, I'm Robert.</h2>
-          <p>I am a leader, problem-solver and software developer - in that order.</p>
-        </section>
-        <section>
-          <blockquote>Robert is one of the best lorem ipsum dolor sit amet. He will solve all of your problems. - Sam August</blockquote>
-        </section>
-        <section aria-labelledby="about__work">
-          <h2 id="about__work">Work</h2>
-          <WorkItems />
-        </section>
-        <section aria-labelledby="about__posts">
-          <h2 id="about__posts">Posts</h2>
-          <ol>
-            <li>How to...</li>
-          </ol>
-        </section>
-      </main>
+      <div>
+        <header role="header">
+          <Nav />
+        </header>
+        <main role="main">
+          <header>
+            <h1>Home</h1>
+          </header>
+        </main>
+      </div>
     );
   }
 }
