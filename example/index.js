@@ -5,7 +5,7 @@
  *   - asynchronously call the library, passing it:
  *     * `routes` (required)
  *     * `buildPath` (optional - defaults to `_site`)
- *     * `browserifyEntryPath` (optional - for client-side JS support - see example/src/browser.js for example)
+ *     * `js` (optional - defaults to `true` - for client-side JS support)
  */
 
 import rs from '../lib/index';
@@ -16,7 +16,7 @@ async () => {
     rs({
       routes,
       buildPath: 'example/_site',
-      browserifyEntryPath: 'example/src/browser.js'
+      js: true
     });
   } catch (err) {
     console.error(err);
