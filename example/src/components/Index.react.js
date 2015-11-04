@@ -5,7 +5,8 @@ import Nav from './Nav.react';
 export default class Index extends Component {
   static meta = {
     title: 'Homepage',
-    description: 'This is the homepage'
+    description: 'This is the homepage',
+    fileName: 'index'
   }
 
   render() {

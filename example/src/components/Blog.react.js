@@ -5,7 +5,8 @@ import Nav from './Nav.react';
 export default class Blog extends Component {
   static meta = {
     title: 'Blog',
-    description: 'This is the blog'
+    description: 'This is the blog',
+    fileName: 'blog'
   }
 
   render() {

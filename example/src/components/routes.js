@@ -7,8 +7,8 @@ import About from './About.react';
 
 export default (
   <Route path="/" component={ Root }>
-    <IndexRoute component={ Index } name="index" />
-    <Route path="blog.html" component={ Blog } name="blog" />
-    <Route path="about.html" component={ About } name="about" />
+    <IndexRoute component={ Index } />
+    <Route path="blog.html" component={ Blog } />
+    <Route path="about.html" component={ About } />
   </Route>
 );

@@ -5,7 +5,8 @@ import Nav from './Nav.react';
 export default class About extends Component {
   static meta = {
     title: 'About',
-    description: 'This is about me'
+    description: 'This is about me',
+    fileName: 'about'
   }
 
   render() {
