@@ -8,12 +8,12 @@
  *     * `browserifyEntryPath` (optional - for client-side JS support - see example/src/browser.js for example)
  */
 
-import ReactStatic from '../lib/index';
+import rs from '../lib/index';
 import routes from './src/components/routes';
 
-(async () => {
+async () => {
   try {
-    ReactStatic({
+    rs({
       routes,
       buildPath: 'example/_site',
       browserifyEntryPath: 'example/src/browser.js'
@@ -21,4 +21,4 @@ import routes from './src/components/routes';
   } catch (err) {
     console.error(err);
   }
-})();
+}();

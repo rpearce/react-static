@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from './Nav.react';
 
 export default class Root extends Component {
   render() {
@@ -10,7 +11,12 @@ export default class Root extends Component {
           <meta property="description" content={ description } />
           <script src="app.js" async></script>
         </head>
-        <body>{ this.props.children }</body>
+        <body>
+          <header role="header">
+            <Nav />
+          </header>
+          { this.props.children }
+        </body>
       </html>
     );
   }
