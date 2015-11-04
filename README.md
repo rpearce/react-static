@@ -1,3 +1,3 @@
-# statik-js (work in progress)
+# react-static
 Node.js + React static markup generator
 

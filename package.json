@@ -1,20 +1,21 @@
 {
-  "name": "statik-js",
+  "name": "react-static",
   "version": "0.1.0",
-  "description": "React static site generator for Node.js with markdown support",
+  "description": "React static site generator for Node.js",
   "main": "lib/index.js",
   "scripts": {
+    "clean": "rm -rf example/_site",
     "lint": "eslint src",
-    "build:example": "npm run build && babel-node example/index.js",
-    "build": "babel lib/statik-js.js -o lib/index.js",
+    "build:example": "npm run clean && npm run build && babel-node example/index.js",
+    "build": "babel lib/react-static.js -o lib/index.js",
     "prebuild": "npm run lint"
   },
   "keywords": [
+    "react",
+    "reactjs",
     "static",
     "static site",
-    "generator",
-    "react",
-    "markdown"
+    "site generator"
   ],
   "author": "Robert Pearce",
   "license": "MIT",
@@ -28,9 +29,6 @@
   "dependencies": {
     "fs-promise": "^0.3.1",
     "history": "^1.12.6",
-    "js-yaml": "^3.4.2",
-    "marked": "^0.3.5",
-    "parse-md": "^0.1.2",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-router": "^1.0.0-rc3",
