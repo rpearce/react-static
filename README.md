@@ -46,25 +46,23 @@ Example `Root` component:
 import React, { Component } from 'react';
 import Nav from './Nav.react';
 
-export default class Root extends Component {
-  render() {
-    const { title, description } = this.props.children.type.meta;
-    return (
-      <html lang="en">
-        <head>
-          <title>{ title }</title>
-          <meta property="description" content={ description } />
-          <script src="app.js" async></script>
-        </head>
-        <body>
-          <header role="header">
-            <Nav />
-          </header>
-          { this.props.children }
-        </body>
-      </html>
-    );
-  }
+export default function Root({ children }) {
+  const { title, description } = children.type.meta;
+  return (
+    <html lang="en">
+      <head>
+        <title>{ title }</title>
+        <meta property="description" content={ description } />
+        <script src="app.js" async></script>
+      </head>
+      <body>
+        <header role="header">
+          <Nav />
+        </header>
+        { children }
+      </body>
+    </html>
+  );
 }
 ```
 
@@ -73,38 +71,25 @@ As you can see, this `Root` component has a dynamic `title` and `description`. T
 ```js
 // Index.react.js
 
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 
-export default class Index extends Component {
-  static meta = {
-    title: 'Homepage',
-    description: 'This is the homepage'
-  }
-
-  render() {
-    return (
-      <main role="main">
-        <header>
-          <h1>Home</h1>
-        </header>
-      </main>
-    );
-  }
+function Index() {
+  return (
+    <main role="main">
+      <header>
+        <h1>Home</h1>
+      </header>
+    </main>
+  );
 }
-```
 
-Note the `static meta =`. This is an ES7+ property initializer that is equivalent to setting
-
-```js
 Index.meta = {
   title: 'Homepage',
   description: 'This is the homepage'
 };
-```
 
-[Read more about ES7+ property initializers on the React release
-docs.](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#es7-property-initializers)
+export default Index;
+```
 
 ### Providing Routes
 In order for react-static to understand the desired layout of your application, you'll want to create a `routes.js` file that utilizes [react-router PlainRoutes](https://github.com/rackt/react-router/blob/master/docs/API.md#plainroute) to provide a generic object filled with your React components.

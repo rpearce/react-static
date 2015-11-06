@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 
-export default class About extends Component {
-  static meta = {
-    title: 'About',
-    description: 'This is about me'
-  }
-
-  render() {
-    return (
-      <main role="main">
-        <header>
-          <h1>About</h1>
-        </header>
-      </main>
-    );
-  }
+function About() {
+  return (
+    <main role="main">
+      <header>
+        <h1>About</h1>
+      </header>
+    </main>
+  );
 }
+
+About.meta = {
+  title: 'About',
+  description: 'This is about me'
+}
+
+export default About;
