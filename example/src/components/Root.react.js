@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './Nav.react';
 
-export default function Root({ children }) {
+const Root = ({ children }) => {
   const { title, description } = children.type.meta;
   return (
     <html lang="en">
@@ -19,3 +19,5 @@ export default function Root({ children }) {
     </html>
   );
 }
+
+export default Root;
