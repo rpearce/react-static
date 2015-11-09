@@ -12,7 +12,12 @@ const Root = ({ children }) => {
       </head>
       <body>
         <header role="header">
-          <Nav />
+          <nav role="navigation">
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/example.html">Example</Link></li>
+            </ul>
+          </nav>
         </header>
         { children }
       </body>

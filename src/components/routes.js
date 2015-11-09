@@ -1,21 +1,15 @@
 import React from 'react';
 import Root from './Root.react';
 import Index from './Index.react';
-import Blog from './Blog.react';
-import About from './About.react';
+import Example from './Example.react';
 
 const IndexRoute = {
   component: Index
 };
 
-const BlogRoute = {
-  path: 'blog.html',
-  component: Blog
-};
-
-const AboutRoute = {
-  path: 'about.html',
-  component: About
+const ExampleRoute = {
+  path: 'example.html',
+  component: Example
 };
 
 export default {
@@ -23,7 +17,6 @@ export default {
   component: Root,
   indexRoute: IndexRoute,
   childRoutes: [
-    BlogRoute,
-    AboutRoute
+    ExampleRoutes
   ]
 };
