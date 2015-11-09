@@ -1,7 +1,7 @@
-# WORK-IN-PROGRESS
+# WORK-IN-PROGRESS (AS IS THE README)
 
 # react-static
-React static site generator for Node.js
+React static site generator framework for Node.js
 
 ## What is this?
 This project exists as a static site generator that utilizes React components for markup but, unlike other static site generators, also generates the client-side React JavaScript to allow the linking between pages to be incredibly fast.
@@ -14,18 +14,11 @@ Under the hood, this tool builds off of [React](https://github.com/facebook/reac
 Given you have a `package.json` file, you'll need to install and save the `react-static` package:
 
 ```
-$ npm install react-static --save-dev
+$ npm install -g react-static
 
-```
-
-If you wish to install it globally (not recommended), you can run it without the `--save-dev` flag:
-
-```
-$ npm install react-static
 ```
 
 ## Usage
-Check out the [example directory](./example) for a working example, but I'll break it down here, as well.
 
 ### Create Components
 You should structure your components as per the [example components](./example/src/components) with some sort of `Root` layout file, an `Index` component, and then all the rest.
@@ -34,8 +27,7 @@ You should structure your components as per the [example components](./example/s
 Root
   Index
   ChildRoutes
-    Blog
-    About
+    Example
 ```
 
 This structure allows for you to have a customizable layout and dynamic children.
@@ -128,34 +120,6 @@ export default {
     AboutRoute
   ]
 };
-```
-
-### Calling react-static
-Recommended way of using react-static:
-  * import the react-static library
-  * import your [routes](#providing-routes)
-  * asynchronously call the library, passing it:
-    * `routes` (required)
-    * `buildPath` (optional - defaults to `_site`)
-    * `browserifyEntryPath` (optional - for client-side JS support - see example/src/browser.js for example)
-
-As shown in the [example](./example/index.js):
-
-```js
-import rs from '../lib/index';
-import routes from './src/components/routes';
-
-async () => {
-  try {
-    rs({
-      routes,
-      buildPath: 'example/_site',
-      browserifyEntryPath: 'example/src/browser.js'
-    });
-  } catch (err) {
-    console.error(err);
-  }
-}();
 ```
 
 ## Contribute
