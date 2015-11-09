@@ -17,6 +17,6 @@ export default {
   component: Root,
   indexRoute: IndexRoute,
   childRoutes: [
-    ExampleRoutes
+    ExampleRoute
   ]
 };

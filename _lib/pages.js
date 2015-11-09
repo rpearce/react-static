@@ -3,11 +3,11 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
 import { buildPath } from '../config';
-import routes from './src/components/routes';
+import routes from '../src/components/routes';
 
-export default async function buildStaticPages() {
+const buildPages = async () => {
   const allRoutes = [].concat(routes.indexRoute || []).concat(routes.childRoutes || []);
-  allRoutes.forEach(function({ path }) {
+  allRoutes.forEach(({ path }) => {
     /*
      * Prepend route path with `/` to build `location`.
      * E.g., `blog.html` will be `/blog.html`.
@@ -32,10 +32,12 @@ export default async function buildStaticPages() {
 
           const componentHTML = renderToString(<RoutingContext { ...renderProps } />),
                 fileName = path || 'index.html';
-        await fsp.writeFile(`${buildPath}/${fileName}`, `<!DOCTYPE html>${componentHTML}`, 'utf8');
+        fsp.writeFile(`${buildPath}/${fileName}`, `<!DOCTYPE html>${componentHTML}`, 'utf8');
       } catch(e) {
         console.error(e);
       }
     });
   });
 }
+
+export default buildPages;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './Nav.react';
+import { Link } from 'react-router';
 
 const Root = ({ children }) => {
   const { title, description } = children.type.meta;

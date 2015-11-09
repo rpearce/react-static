@@ -1,15 +1,16 @@
-import fsp from 'fs-promise';
-import mkdirp from 'mkdirp';
+import { exec } from 'child_process';
 import { buildPath, js } from './config';
-import html from './lib/html';
-import client from './lib/client';
+import html from './_lib/pages';
+import client from './_lib/client';
 
 async () => {
   try {
     /*
-     * Create site build folder if it does not exist.
+     * Clean out and recreate _site build folder
      */
-    mkdirp(buildPath, e => console.error(e));
+    let execCallback = (e) => { if (e !== null) { console.error(e); } };
+    exec(`rm -rf ${buildPath}`, execCallback);
+    exec(`mkdir ${buildPath}`, execCallback);
 
     /*
      * Asynchronously build the static pages.
@@ -18,8 +19,8 @@ async () => {
     html();
 
     /*
-     * Create browserified & uglified JS file in the build path
-     * if `browserJSPath` property is provided.
+     * Create client JS file (app.js) in the build
+     * path if `js` config option is `true`
      */
     if (js) {
       client();
