@@ -6,8 +6,6 @@ React static site generator framework for Node.js
 ## What is this?
 This project exists as a static site generator that utilizes React components for markup but, unlike other static site generators, also generates the client-side React JavaScript to allow the linking between pages to be incredibly fast.
 
-This project is a library but also a set of guidelines for building awesome, lightning-fast static pages with React.
-
 Under the hood, this tool builds off of [React](https://github.com/facebook/react), [react-router](https://github.com/rackt/react-router) and [nodejs](https://github.com/nodejs/node) to build static markup and JavaScript.
 
 ## Installation
@@ -21,7 +19,9 @@ $ npm install -g react-static
 ## Usage
 
 ### Create Components
-You should structure your components as per the [example components](./example/src/components) with some sort of `Root` layout file, an `Index` component, and then all the rest.
+You should structure your components as per the [example components](./src/components) with at minimum a `Root` layout component and an `Index` component, as well as any other pages or components.
+
+The structure will end up looking like this:
 
 ```
 Root

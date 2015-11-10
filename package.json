@@ -4,9 +4,11 @@
   "description": "React static site generator framework for Node.js",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -f index.js",
     "lint": "eslint src",
-    "build": "babel-node index.js",
-    "prebuild": "npm run lint"
+    "watch": "babel lib/react-static.js -w -o index.js",
+    "build": "babel lib/react-static.js -o index.js",
+    "prebuild": "npm run clean && npm run lint"
   },
   "keywords": [
     "react",
@@ -23,16 +25,22 @@
   "dependencies": {
     "babel": "^5.8.29",
     "babel-eslint": "^4.1.4",
-    "babelify": "^6.4.0",
-    "browserify": "^12.0.1",
+    "commander": "^2.9.0",
     "eslint": "^1.9.0",
-    "fs-promise": "^0.3.1",
-    "gulp": "^3.9.0",
-    "history": "^1.12.6",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-router": "^1.0.0-rc3",
-    "uglify-js": "^2.5.0",
-    "vinyl-source-stream": "^1.1.0"
+    "express": "^4.13.3",
+    "fs-promise": "^0.3.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpearce/react-static.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rpearce/react-static/issues"
+  },
+  "homepage": "https://github.com/rpearce/react-static#readme",
+  "preferGlobal": "true",
+  "bin": {
+    "react-static": "index.js"
   }
 }
