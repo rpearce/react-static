@@ -36,10 +36,11 @@ _commander2['default'].command('new [path]').description('create new react-stati
     (0, _child_process.exec)('mkdir -p ' + env, execCallback);
     (0, _child_process.exec)('cp -r ' + defaultsPath + ' ' + env, execCallback);
     console.log('=> Successfully installed in to `' + env + '`');
+
     console.log('=> Run `cd ' + env + ' && npm install` to complete setup');
     console.log('=> Once setup is complete, run `react-static serve` to run the development server');
   } else {
-    throw 'react-static: Please provide a directory name to `react-static new <dirname>`';
+    console.error('Error: Please provide a directory name to `react-static new <dirname>`');
   }
 });
 
