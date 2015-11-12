@@ -2,7 +2,6 @@ import fsp from 'fs-promise';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
-import { buildPath } from '../config';
 import routes from '../src/components/routes';
 
 const buildPages = async () => {
@@ -32,7 +31,7 @@ const buildPages = async () => {
 
           const componentHTML = renderToString(<RoutingContext { ...renderProps } />),
                 fileName = path || 'index.html';
-        fsp.writeFile(`${buildPath}/${fileName}`, `<!DOCTYPE html>${componentHTML}`, 'utf8');
+        fsp.writeFile(`_site/${fileName}`, `<!DOCTYPE html>${componentHTML}`, 'utf8');
       } catch(e) {
         console.error(e);
       }

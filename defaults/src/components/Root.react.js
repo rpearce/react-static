@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-const Root = ({ children }) => {
+const Root = ({ children }) =>
   const { title, description } = children.type.meta;
   return (
     <html lang="en">
@@ -23,6 +23,5 @@ const Root = ({ children }) => {
       </body>
     </html>
   );
-}
 
 export default Root;

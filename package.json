@@ -24,13 +24,13 @@
   "license": "MIT",
   "dependencies": {
     "babel": "^5.8.29",
-    "babel-eslint": "^4.1.4",
     "commander": "^2.9.0",
-    "eslint": "^1.9.0",
-    "express": "^4.13.3",
-    "fs-promise": "^0.3.1"
+    "nodemon": "^1.8.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^4.1.4",
+    "eslint": "^1.9.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rpearce/react-static.git"

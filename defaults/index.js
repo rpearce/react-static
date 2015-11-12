@@ -1,29 +1,42 @@
 import { exec } from 'child_process';
-import { buildPath, js } from './config';
+import express from 'express';
+import { clientJS, port } from './config';
 import buildPages from './_lib/pages';
 import buildClientJS from './_lib/client';
 
 async () => {
   try {
+    console.log('=> Building static assets...');
+
     /*
      * Remove and recreate _site build folder
      */
-    let execCallback = (e) => { if (e !== null) { console.error(e); } };
-    exec(`rm -rf ${buildPath}`, execCallback);
-    exec(`mkdir ${buildPath}`, execCallback);
+    const execCallback = (err) => { if (err !== null) { console.log('exec error: ' + err); } }
+    exec('rm -rf _site', execCallback);
+    exec('mkdir _site', execCallback);
 
     /*
      * Asynchronously build the static pages.
      */
-    buildPages();
+    await buildPages();
 
     /*
      * Create client JS file (app.js) in the build
-     * path if `js` config option is `true`
+     * path if `clientJS` config option is `true`
      */
-    if (js) {
+    if (clientJS) {
       buildClientJS();
     }
+
+    /*
+     * Start dev server
+     */
+    const app = express();
+
+    app.use('/', express.static('_site'));
+    app.listen(port);
+
+    console.log(`=> A development server is running at http://localhost:${port}`);
   } catch (err) {
     console.error(err);
   }

@@ -2,8 +2,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "babel-node index.js",
-    "prebuild": "npm run lint"
+    "build": "npm run lint && babel-node --optional es7.asyncFunctions --stage 0"
   },
   "devDependencies": {
     "babel": "^5.8.29",
@@ -11,6 +10,7 @@
     "babelify": "^6.4.0",
     "browserify": "^12.0.1",
     "eslint": "^1.9.0",
+    "express": "^4.13.3",
     "fs-promise": "^0.3.1",
     "gulp": "^3.9.0",
     "uglify-js": "^2.5.0",
