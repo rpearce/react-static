@@ -3,7 +3,7 @@ import browserify from 'browserify';
 import babelify from 'babelify';
 import source from 'vinyl-source-stream';
 
-const client = () => {
+const client = async () => {
   return browserify({ entries: 'src/browser.js', debug: true})
     .transform(babelify)
     .bundle()

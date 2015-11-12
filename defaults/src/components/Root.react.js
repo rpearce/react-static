@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { clientJS } from '../../config';
 
-const Root = ({ children }) =>
+const Root = ({ children }) => {
   const { title, description } = children.type.meta;
+  const script = clientJS ? <script src="app.js" async></script> : null;
   return (
     <html lang="en">
       <head>
         <title>{ title }</title>
         <meta property="description" content={ description } />
-        <script src="app.js" async></script>
       </head>
       <body>
         <header role="header">
@@ -20,8 +21,11 @@ const Root = ({ children }) =>
           </nav>
         </header>
         { children }
+        { script }
       </body>
     </html>
   );
+}
+
 
 export default Root;

@@ -16,7 +16,7 @@ async () => {
     exec('mkdir _site', execCallback);
 
     /*
-     * Asynchronously build the static pages.
+     * Build the static pages.
      */
     await buildPages();
 
@@ -25,7 +25,7 @@ async () => {
      * path if `clientJS` config option is `true`
      */
     if (clientJS) {
-      buildClientJS();
+      await buildClientJS();
     }
 
     /*

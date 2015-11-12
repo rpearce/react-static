@@ -2,7 +2,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "dev": "npm run lint && babel-node --optional es7.asyncFunctions --stage 0"
+    "dev": "npm run lint && babel-node --optional es7.asyncFunctions --stage 0 -- index.js"
   },
   "devDependencies": {
     "babel": "^5.8.29",
@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "history": "^1.12.6",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
     "react-router": "^1.0.0-rc3"
   }
 }
