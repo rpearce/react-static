@@ -1,45 +1,46 @@
 {
   "name": "react-static",
   "version": "0.1.0",
-  "description": "React static site generator for Node.js",
-  "main": "lib/index.js",
+  "description": "React static site generator framework for Node.js",
+  "main": "index.js",
   "scripts": {
-    "clean": "rm -rf example/_site",
+    "clean": "rm -f index.js",
     "lint": "eslint src",
-    "build:example": "npm run clean && npm run build && babel-node example/index.js",
-    "build": "babel lib/react-static.js -o lib/index.js",
-    "prebuild": "npm run lint"
+    "watch": "babel lib/react-static.js -w -o index.js",
+    "build": "babel lib/react-static.js -o index.js",
+    "prebuild": "npm run clean && npm run lint"
   },
   "keywords": [
     "react",
     "reactjs",
     "static",
     "static site",
-    "site generator"
+    "site generator",
+    "static site framework",
+    "react static",
+    "react static framework"
   ],
   "author": "Robert Pearce",
   "license": "MIT",
-  "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-eslint": "^4.1.3",
-    "babelify": "^6.4.0",
-    "eslint": "^1.6.0"
-  },
   "dependencies": {
-    "browserify": "^12.0.1",
-    "fs-promise": "^0.3.1",
-    "history": "^1.12.6",
-    "mkdirp": "^0.5.1",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-router": "^1.0.0-rc3",
-    "uglify-js": "^2.5.0"
+    "babel": "^5.8.29",
+    "commander": "^2.9.0",
+    "nodemon": "^1.8.1"
   },
-  "browserify": {
-    "transform": [
-      [
-        "babelify"
-      ]
-    ]
+  "devDependencies": {
+    "babel-eslint": "^4.1.4",
+    "eslint": "^1.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpearce/react-static.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rpearce/react-static/issues"
+  },
+  "homepage": "https://github.com/rpearce/react-static#readme",
+  "preferGlobal": "true",
+  "bin": {
+    "react-static": "index.js"
   }
 }
