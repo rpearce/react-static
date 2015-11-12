@@ -20,6 +20,8 @@ async () => {
      */
     await buildPages();
 
+    console.log('=> Static assets written to _site/');
+
     /*
      * Create client JS file (app.js) in the build
      * path if `clientJS` config option is `true`
