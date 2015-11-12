@@ -58,108 +58,57 @@ From this point on, all you need to do with regards to this core functionality i
 
 _NOTE: Do not edit anything in the `\_site/` folder. This is regularly removed and recreated._
 
-### Create Components
-You should structure your components as per the [example components](./src/components) with at minimum a `Root` layout component and an `Index` component, as well as any other pages or components.
+### Creating a Component
+Inside of the `src/components/` components directory is where your components live, and you are free to structure them in any way you see fit, but if you change the location of `routes.js`, you're going to have problems.
 
-The basic structure looks like like this:
-
-```
-Root
-  Index (functions as the Root, in a sense)
-  Example
-```
-
-This structure allows for you to have a customizable layout and dynamic children.
-
-Example `Root` component:
+Create a new file, e.g., `src/components/About.react.js`, and place this content inside of it:
 
 ```js
-// Root.react.js
-
-import React, { Component } from 'react';
-import Nav from './Nav.react';
-
-export default function Root({ children }) {
-  const { title, description } = children.type.meta;
-  return (
-    <html lang="en">
-      <head>
-        <title>{ title }</title>
-        <meta property="description" content={ description } />
-        <script src="app.js" async></script>
-      </head>
-      <body>
-        <header role="header">
-          <Nav />
-        </header>
-        { children }
-      </body>
-    </html>
-  );
-}
-```
-
-As you can see, this `Root` component has a dynamic `title` and `description`. These come from its children's static props that are set in whatever component is being rendered that looks like this:
-
-```js
-// Index.react.js
-
 import React from 'react';
 
-function Index() {
-  return (
-    <main role="main">
-      <header>
-        <h1>Home</h1>
-      </header>
-    </main>
-  );
-}
+const About = () =>
+  <main role="main">
+    <header>
+      <h1>About</h1>
+    </header>
+  </main>
 
-Index.meta = {
-  title: 'Homepage',
-  description: 'This is the homepage'
+About.meta = {
+  title: 'About',
+  description: 'This is the about us page'
 };
 
-export default Index;
+export default About;
 ```
 
-### Providing Routes
-In order for react-static to understand the desired layout of your application, you'll want to create a `routes.js` file that utilizes [react-router PlainRoutes](https://github.com/rackt/react-router/blob/master/docs/API.md#plainroute) to provide a generic object filled with your React components.
+If you're wondering where `class` and `extend` are, don't worry! This is a stateless functional component, as included in the [React 0.14 release notes](NEED LINK), that also sets a few static properties: `title` and `description` that are used in `src/components/Root.react.js` to provide metadata for your page (extend this as you wish).
+
+Next go to your `src/components/routes.js` file and import your `About` component:
 
 ```js
-// routes.js
-
-import React from 'react';
-import Root from './Root.react';
-import Index from './Index.react';
-import Blog from './Blog.react';
 import About from './About.react';
-
-const IndexRoute = {
-  component: Index
-};
-
-const BlogRoute = {
-  path: 'blog.html',
-  component: Blog
-};
-
-const AboutRoute = {
-  path: 'about.html',
-  component: About
-};
-
-export default {
-  path: '/',
-  component: Root,
-  indexRoute: IndexRoute,
-  childRoutes: [
-    BlogRoute,
-    AboutRoute
-  ]
-};
 ```
+
+and add the route information to the `routes` object:
+
+```
+const routes = {
+  // other routes
+
+  About: {
+    path: 'desired/path/to/about.html',
+    component: About
+  }
+}
+```
+
+Once you've done this, if you haven't already run
+
+```
+$ react-static serve
+```
+
+go ahead and do that. Happy coding!
 
 ## Contribute
 

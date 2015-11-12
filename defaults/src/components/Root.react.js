@@ -27,7 +27,6 @@ const Root = ({ children }) => {
       </body>
     </html>
   );
-}
-
+};
 
 export default Root;
