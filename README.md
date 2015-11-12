@@ -47,6 +47,7 @@ $ react-static serve
 > eslint src
 
 => Building static assets...
+=> Static assets written to _site/
 => A development server is running at http://localhost:4000
 ```
 
