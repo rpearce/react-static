@@ -24,7 +24,7 @@ var _packageJson2 = _interopRequireDefault(_packageJson);
 var defaultsPath = _path2['default'].join(__dirname, 'defaults');
 var execCallback = function execCallback(err) {
   if (err !== null) {
-    console.log('exec error: ' + err);
+    throw err;
   }
 };
 

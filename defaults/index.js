@@ -3,8 +3,7 @@ import express from 'express';
 import { clientJS, port } from './config';
 import buildPages from './_lib/pages';
 import buildClientJS from './_lib/client';
-
-const execCallback = (err) => { if (err !== null) { throw err; } }
+import { execCallback } from './_lib/helpers';
 
 async () => {
   try {

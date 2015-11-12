@@ -4,9 +4,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
 import routes from '../src/components/routes';
-
-const execCallback = (err) => { if (err !== null) { throw err; } }
-const fspCallback = (err) => { if (err) { throw err; } };
+import { execCallback, fspCallback } from './helpers';
 
 const buildPages = async () => {
   const allRoutes = [].concat(routes.indexRoute || []).concat(routes.childRoutes || []);
