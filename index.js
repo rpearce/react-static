@@ -28,8 +28,6 @@ var execCallback = function execCallback(err) {
   }
 };
 
-_commander2['default'].version(_packageJson2['default'].version);
-
 _commander2['default'].command('new [path]').description('create a new react-static project').action(function handleNew(env, options) {
   if (env) {
     console.log('Installing react-static in to `' + env + '`');
@@ -54,4 +52,4 @@ _commander2['default'].command('serve').description('run the development server 
   });
 });
 
-_commander2['default'].parse(process.argv);
+_commander2['default'].version(_packageJson2['default'].version).parse(process.argv);
