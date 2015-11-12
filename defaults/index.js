@@ -4,7 +4,7 @@ import { clientJS, port } from './config';
 import buildPages from './_lib/pages';
 import buildClientJS from './_lib/client';
 
-const execCallback = (err) => { if (err !== null) { console.log('exec error: ' + err); } }
+const execCallback = (err) => { if (err !== null) { throw err; } }
 
 async () => {
   try {

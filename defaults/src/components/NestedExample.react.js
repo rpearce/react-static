@@ -3,7 +3,7 @@ import React from 'react';
 const NestedExample = () =>
   <main role="main">
     <header>
-      <h1>Example</h1>
+      <h1>Nested Example</h1>
     </header>
   </main>
 

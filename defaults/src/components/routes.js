@@ -2,26 +2,32 @@ import React from 'react';
 import Root from './Root.react';
 import Index from './Index.react';
 import Example from './Example.react';
+import NestedExample from './NestedExample.react';
 
-const IndexRoute = {
-  component: Index
+const routes = {
+  IndexRoute: {
+    component: Index
+  },
+  ExampleRoute: {
+    path: 'example.html',
+    component: Example
+  },
+  NestedExampleRoute: {
+    path: 'this/is/a/ridiculously/nested/example.html',
+    component: NestedExample
+  }
 };
 
-export const ExampleRoute = {
-  path: 'example.html',
-  component: Example
-};
-
-export const NestedExampleRoute = {
-  path: 'this/is/a/ridiculously/nested/example.html',
-  component: Example
-};
+export const path = (route) => {
+  return '/'.concat(routes[route].path || '');
+}
 
 export default {
   path: '/',
   component: Root,
-  indexRoute: IndexRoute,
+  indexRoute: routes.IndexRoute,
   childRoutes: [
-    ExampleRoute
+    routes.ExampleRoute,
+    routes.NestedExampleRoute
   ]
 };
