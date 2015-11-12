@@ -4,7 +4,7 @@
 React static site generator framework for Node.js
 
 ## What is this?
-This project exists as a static site generator that utilizes React components for markup but, unlike other static site generators, also generates the client-side React JavaScript to allow the linking between pages to be incredibly fast.
+This project exists as a static site generator that utilizes React components for markup but, unlike other static site generators, also generates the client-side React JavaScript to allow the linking between pages to be incredibly fast out of the box. This means you'll also be able to have any other fancy client-side-oriented React bundled, as well.
 
 Under the hood, this tool builds off of [React](https://github.com/facebook/react), [react-router](https://github.com/rackt/react-router) and [nodejs](https://github.com/nodejs/node) to build static markup and JavaScript.
 
@@ -13,21 +13,60 @@ Given you have a `package.json` file, you'll need to install and save the `react
 
 ```
 $ npm install -g react-static
-
 ```
 
 ## Usage
+Create a new `react-static` project:
+
+```
+$ react-static new portfolio/
+Installing react-static in to `portfolio/`
+=> Successfully installed in to `portfolio/`
+=> Run the following to complete setup:
+
+    $ cd portfolio/ && npm install
+
+=> Once setup is complete, to run the development server:
+
+    $ react-static serve
+```
+
+Change directory in to `portfolio/` and install dependencies:
+
+```
+$ cd portfolio/ && npm install
+```
+
+This might take a minute. Once your dependencies are installed, start the local dev bundling and watching:
+
+```
+$ react-static serve
+
+> @ build /Users/rpearce/Desktop/portfolio
+> npm run lint && babel-node --optional es7.asyncFunctions --stage 0 "index.js"
+
+> @ lint /Users/rpearce/Desktop/portfolio
+> eslint src
+
+=> Building static assets...
+=> A development server is running at http://localhost:4000
+```
+
+Navigate to [http://localhost:4000](http://localhost:4000) and see the dummy components in action.
+
+From this point on, all you need to do with regards to this core functionality is make changes to your app, and `react-static serve` will re-bundle and re-serve everything automatically.
+
+_NOTE: Do not edit anything in the `\_site/` folder. This is regularly removed and recreated._
 
 ### Create Components
 You should structure your components as per the [example components](./src/components) with at minimum a `Root` layout component and an `Index` component, as well as any other pages or components.
 
-The structure will end up looking like this:
+The basic structure looks like like this:
 
 ```
 Root
-  Index
-  ChildRoutes
-    Example
+  Index (functions as the Root, in a sense)
+  Example
 ```
 
 This structure allows for you to have a customizable layout and dynamic children.

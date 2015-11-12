@@ -2,7 +2,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "npm run lint && babel-node --optional es7.asyncFunctions --stage 0"
+    "dev": "npm run lint && babel-node --optional es7.asyncFunctions --stage 0"
   },
   "devDependencies": {
     "babel": "^5.8.29",

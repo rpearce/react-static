@@ -49,7 +49,7 @@ _commander2['default'].command('serve').description('run the development server 
 
   (0, _nodemon2['default'])({
     script: main,
-    exec: 'npm run build',
+    exec: 'npm run dev',
     ignore: '_site'
   });
 });
