@@ -1,7 +1,5 @@
-# WORK-IN-PROGRESS (AS IS THE README)
-
 # react-static
-React static site generator framework for Node.js
+React static site generator framework for Node.js.
 
 ## What is this?
 This project exists as a static site generator that utilizes React components for markup but, unlike other static site generators, also generates the client-side React JavaScript to allow the linking between pages to be incredibly fast out of the box. This means you'll also be able to have any other fancy client-side-oriented React bundled, as well.
