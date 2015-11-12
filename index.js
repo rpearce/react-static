@@ -21,7 +21,7 @@ var _packageJson = require('./package.json');
 
 var _packageJson2 = _interopRequireDefault(_packageJson);
 
-var defaultsPath = _path2['default'].join(__dirname, 'defaults/');
+var defaultsPath = _path2['default'].join(__dirname, 'defaults');
 var execCallback = function execCallback(err) {
   if (err !== null) {
     console.log('exec error: ' + err);
@@ -30,7 +30,7 @@ var execCallback = function execCallback(err) {
 
 _commander2['default'].version(_packageJson2['default'].version);
 
-_commander2['default'].command('new [path]').description('create a new react-static project').action(function (env, options) {
+_commander2['default'].command('new [path]').description('create a new react-static project').action(function handleNew(env, options) {
   if (env) {
     console.log('Installing react-static in to `' + env + '`');
     (0, _child_process.exec)('mkdir -p ' + env, execCallback);
@@ -43,7 +43,7 @@ _commander2['default'].command('new [path]').description('create a new react-sta
   }
 });
 
-_commander2['default'].command('serve').description('run the development server and have it watch for changes').option('-m, --main <main>', 'Main entry file (defaults to index.js)').action(function (_ref) {
+_commander2['default'].command('serve').description('run the development server and have it watch for changes').option('-m, --main <main>', 'Main entry file (defaults to index.js)').action(function handleServe(_ref) {
   var _ref$main = _ref.main;
   var main = _ref$main === undefined ? 'index.js' : _ref$main;
 

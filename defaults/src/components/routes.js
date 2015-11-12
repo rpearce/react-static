@@ -7,8 +7,13 @@ const IndexRoute = {
   component: Index
 };
 
-const ExampleRoute = {
+export const ExampleRoute = {
   path: 'example.html',
+  component: Example
+};
+
+export const NestedExampleRoute = {
+  path: 'this/is/a/ridiculously/nested/example.html',
   component: Example
 };
 

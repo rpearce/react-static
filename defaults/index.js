@@ -4,6 +4,8 @@ import { clientJS, port } from './config';
 import buildPages from './_lib/pages';
 import buildClientJS from './_lib/client';
 
+const execCallback = (err) => { if (err !== null) { console.log('exec error: ' + err); } }
+
 async () => {
   try {
     console.log('=> Building static assets...');
@@ -11,7 +13,6 @@ async () => {
     /*
      * Remove and recreate _site build folder
      */
-    const execCallback = (err) => { if (err !== null) { console.log('exec error: ' + err); } }
     exec('rm -rf _site', execCallback);
     exec('mkdir _site', execCallback);
 
