@@ -24,8 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "babel": "^5.8.29",
-    "commander": "^2.9.0",
-    "nodemon": "^1.8.1"
+    "commander": "^2.9.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.4",

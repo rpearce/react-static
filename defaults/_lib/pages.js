@@ -1,10 +1,9 @@
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 import fsp from 'fs-promise';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
 import routes from '../src/components/routes';
-import { execCallback, fspCallback } from './helpers';
 
 const buildPages = async () => {
   const allRoutes = [].concat(routes.indexRoute || []).concat(routes.childRoutes || []);
@@ -37,8 +36,9 @@ const matchAndWrite = ({ path }) => {
             directory = determineDirectory(path),
             filePath = path || 'index.html';
 
-      await exec(`mkdir -p _site/${directory}`, execCallback);
-      fsp.writeFile(`_site/${filePath}`, `<!DOCTYPE html>${componentHTML}`, 'utf8', fspCallback);
+      execSync(`mkdir -p _site/${directory}`, { stdio: [0,1,2] });
+      fsp.writeFile(`_site/${filePath}`, `<!DOCTYPE html>${componentHTML}`, 'utf8', (err) => { if (err) { throw err; } });
+
     } catch(e) {
       console.error(e);
     }

@@ -1,0 +1,10 @@
+{
+  "verbose": true,
+  "script": "index.js",
+  "exec": "npm run build",
+  "ignore": [
+    "_site/*",
+    "*.log"
+  ],
+  "ext": "js json"
+}

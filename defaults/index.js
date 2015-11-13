@@ -1,9 +1,8 @@
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 import express from 'express';
 import { clientJS, port } from './config';
 import buildPages from './_lib/pages';
 import buildClientJS from './_lib/client';
-import { execCallback } from './_lib/helpers';
 
 async () => {
   try {
@@ -12,8 +11,8 @@ async () => {
     /*
      * Remove and recreate _site build folder
      */
-    exec('rm -rf _site', execCallback);
-    exec('mkdir _site', execCallback);
+    execSync('rm -rf _site');
+    execSync('mkdir _site');
 
     /*
      * Build the static pages.
