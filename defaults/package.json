@@ -2,7 +2,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "dev": "npm run lint && babel-node --optional es7.asyncFunctions --stage 0 -- index.js"
+    "dev": "nodemon",
+    "build": "babel-node --optional es7.asyncFunctions --stage 0"
   },
   "devDependencies": {
     "babel": "^5.8.29",
@@ -13,6 +14,7 @@
     "express": "^4.13.3",
     "fs-promise": "^0.3.1",
     "gulp": "^3.9.0",
+    "nodemon": "^1.8.1",
     "uglify-js": "^2.5.0",
     "vinyl-source-stream": "^1.1.0"
   },
