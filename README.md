@@ -90,7 +90,7 @@ import About from './About.react';
 
 and add the route information to the `routes` object:
 
-```
+```js
 const routes = {
   // other routes
 
