@@ -1,14 +1,15 @@
 {
   "name": "react-static",
-  "version": "0.1.1",
-  "description": "React static site generator framework for Node.js",
+  "version": "0.2.0",
+  "description": "Modular library for building simple static pages with React",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm run clean && npm run lint",
+    "build": "babel react-static.js -o index.js",
     "clean": "rm -f index.js",
     "lint": "eslint src",
     "watch": "babel lib/react-static.js -w -o index.js",
-    "build": "babel lib/react-static.js -o index.js",
-    "prebuild": "npm run clean && npm run lint"
+    "test": "find ./test -name '*.test.js' | xargs mocha --require ./test/mocha-babel.js"
   },
   "keywords": [
     "react",
@@ -16,19 +17,30 @@
     "static",
     "static site",
     "site generator",
-    "static site framework",
+    "static site library",
     "react static",
-    "react static framework"
+    "react static library"
   ],
   "author": "Robert Pearce",
   "license": "MIT",
   "dependencies": {
-    "babel": "^5.8.29",
-    "commander": "^2.9.0"
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "fs-promise": "^0.4.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0-rc5"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.4",
-    "eslint": "^1.9.0"
+    "babel-polyfill": "^6.3.14",
+    "chai": "^3.5.0",
+    "eslint": "^1.9.0",
+    "mocha": "^2.4.5"
   },
   "repository": {
     "type": "git",

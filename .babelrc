@@ -1,7 +1,7 @@
 {
-  "stage": 0,
-  "optional": [
-    "es7.asyncFunctions",
-    "es7.exportExtensions"
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
   ]
 }

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { clientJS } from '../../config';
 import { path } from './routes';
 
 const Root = ({ children }) => {
   const { title, description } = children.type.meta;
-  const script = clientJS ? <script src="/app.js" async></script> : null;
   return (
     <html lang="en">
       <head>
@@ -23,7 +21,6 @@ const Root = ({ children }) => {
           </nav>
         </header>
         { children }
-        { script }
       </body>
     </html>
   );
