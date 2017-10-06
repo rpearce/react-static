@@ -1,4 +1,5 @@
 # react-static
+(_NO LONGER ON NPM & NOT MAINTAINED_)
 React static site generator framework for Node.js.
 
 ## What is this?
@@ -7,11 +8,13 @@ This project exists as a static site generator that utilizes React components fo
 Under the hood, this tool builds off of [React](https://github.com/facebook/react), [react-router](https://github.com/rackt/react-router) and [nodejs](https://github.com/nodejs/node) to build static markup and JavaScript.
 
 ## Installation
-Given you have a `package.json` file, you'll need to install and save the `react-static` package:
+If for some reason you'd like to install this:
 
-```
-$ npm install -g react-static
-```
+1. clone this repository
+1. run `$ npm install`
+1. run `$ npm link`
+1. from your projects folder, run `$ npm link react-static`
+1. use the tool as specified below
 
 ## Usage
 Create a new `react-static` project:
